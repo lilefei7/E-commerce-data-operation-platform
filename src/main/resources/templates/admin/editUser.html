@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>编辑用户</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.css}">
+</head>
+<body>
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+<div class="container">
+    <br/><br/>
+    <div class="col-6 offset-4">
+    <form enctype="multipart/form-data" action="updateUser" method="post">
+        <input name="id" type="hidden" th:value="${user.id}"/>
+        <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label">用户名</label>
+            <div class="col-4">
+                <input th:value="${user.username}" name="username" type="text" class="form-control form-control-sm"
+                       id="username">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="password" class="col-sm-2 col-form-label">密码</label>
+            <div class="col-4">
+                <input th:value="${user.password}" name="password" type="password" class="form-control form-control-sm"
+                       id="password">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="age" class="col-sm-2 col-form-label">年龄</label>
+            <div class="col-4">
+                <input th:value="${user.age}" value="21" name="age" type="text" class="form-control form-control-sm" id="age">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="mobile" class="col-sm-2 col-form-label">手机号</label>
+            <div class="col-4">
+                <input th:value="${user.mobile}"  value="17703741864" name="mobile" type="text" class="form-control form-control-sm"
+                       id="mobile">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">邮箱</label>
+            <div class="col-4">
+                <input  th:value="${user.email}" value="ailef@focmail.com" name="email" type="text" class="form-control form-control-sm" id="email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">地址</label>
+            <div class="col-4">
+                <input  th:value="${user.address}" value="zhengzhou" name="address" type="text" class="form-control form-control-sm"
+                       id="address">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="status" class="col-sm-2 col-form-label">身份</label>
+            <div class="col-4">
+                <input  th:value="${user.status}"  value="1" name="status" type="text" class="form-control form-control-sm"
+                       id="status">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="head_pic" class="col-sm-2 col-form-label">头像</label>
+            <div class="col-4">
+                <input  th:value="${user.head_pic}" name="head_pic" type="file" class="form-control form-control-sm"
+                       id="head_pic">
+            </div>
+
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary ">提交</button>
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+
+</html>

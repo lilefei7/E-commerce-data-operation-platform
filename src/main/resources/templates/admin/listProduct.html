@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>商品维护</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.css}">
+</head>
+<body>
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+<script th:src="@{/webjars/echarts/4.9.0/echarts.js}"></script>
+<div class="container">
+    <div th:include="include::menu"></div>
+    <div class="row">
+        <div class="col-6 text-center">
+            <div hidden id="salesTrend" style="width: 1000px;height:300px;">
+                salesTrendChart
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#addProduct">
+                    添加
+                </button>
+                <a href="exportProduct">
+                <button type="button" class="btn btn-outline-dark btn-sm">
+                    导出
+                </button>
+                </a>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <td>
+
+                            <button id="btnBatchDelete" class="btn btn-outline-danger btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                                删除
+                            </button>
+                        </td>
+                        <td>商品名</td>
+                        <td>价格</td>
+                        <td>库存</td>
+                        <td>访问量</td>
+                        <td>状态</td>
+                        <td>上架时间</td>
+                        <td colspan="1">操作</td>
+
+                    </tr>
+                    </thead>
+                    <tbody id="tbody1">
+                    <tr th:each="product:${page.list}">
+                        <td><input type="checkbox" th:id="${product.id}" class="batchDelete"></td>
+                        <td class="productName" th:text="${product.name}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td th:text="${product.sum}"></td>
+                        <td class="productVisit" th:text="${product.visitCount}"></td>
+                        <td th:if="${product.status ne 0} ">
+                            <button class=" btn btn-success btn-sm" disabled>
+                                上架
+                            </button>
+                        </td>
+                        <td th:if="${product.status eq 0} ">
+                            <button class=" btn btn-warning btn-sm" disabled>
+                                下架
+                            </button>
+                        </td>
+                        <td th:text="${product.addDate}"></td>
+                        <td>
+                            <div class="btn-group ">
+                                <div th:if="${product.status ne 0}">
+                                    <a class="btn btn-outline-warning btn-sm m-1"
+                                       th:href="@{/offShelf(id=${product.id})}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor"
+                                             class="bi bi-download" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path fill-rule="evenodd"
+                                                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                        </svg>
+                                        下架
+                                    </a>
+                                </div>
+                                <div th:if="${product.status eq 0}">
+                                    <a class="btn btn-outline-success btn-sm m-1"
+                                       th:href="@{/onShelf(id=${product.id})}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor"
+                                             class="bi bi-upload" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path fill-rule="evenodd"
+                                                  d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                        </svg>
+                                        上架
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="btn btn-outline-danger btn-sm m-1"
+                                       th:href="@{/deleteProduct(id=${product.id})}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor"
+                                             class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd"
+                                                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                        删除
+                                    </a>
+                                </div>
+                                <div>
+                                    <a class="btn btn-outline-primary btn-sm m-1"
+                                       th:href="@{/editProduct(id=${product.id},pic_url_spare=${product.pic_url})}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor"
+                                             class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                        编辑
+                                    </a>
+                                </div>
+
+                                <!--                        商品详情可以显示商品的描述信息和图片-->
+                                <div>
+                                    <button type="button" class="btn btn-outline-info btn-sm m-1" data-toggle="modal"
+                                            data-target="#productDetails">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor"
+                                             class="bi bi-credit-card-2-front" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M14 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+                                            <path d="M2 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1z"/>
+                                            <path fill-rule="evenodd"
+                                                  d="M2 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+                                        </svg>
+                                        详情
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <div class="modal fade" id="productDetails" tabindex="-1" role="dialog"
+                             aria-labelledby="productDetails" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="">productDetails</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p th:text="${product.description}"></p>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="btn-group-sm">
+                    <a class="btn btn-outline-dark btn-sm" th:href="@{/listProduct(start=1)}">[首 页]</a>
+                    <a class="btn btn-outline-dark btn-sm" th:href="@{/listProduct(start=${page.pageNum-1})}">[上一页]</a>
+                    <a class="btn btn-outline-dark btn-sm" th:href="@{/listProduct(start=${page.pageNum+1})}">[下一页]</a>
+                    <a class="btn btn-outline-dark btn-sm" th:href="@{/listProduct(start=${page.pages})}">[末 页]</a>
+                </div>
+                <br/><br/>
+            </div>
+            <br/>
+            <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">添加产品</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form enctype="multipart/form-data" action="addProduct" method="post" class="ml-3">
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">商品名</label>
+                                <div class="col-sm-6">
+                                    <input required name="name" type="text" class="form-control form-control-sm" id="name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="price" class="col-sm-2 col-form-label">价格</label>
+                                <div class="col-sm-6">
+                                    <input  required name="price" type="text" class="form-control form-control-sm" id="price">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="sum" class="col-sm-2 col-form-label">库存</label>
+                                <div class="col-sm-6">
+                                    <input  required name="sum" type="text" class="form-control form-control-sm" id="sum">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="visitCount" class="col-sm-2 col-form-label">访问量</label>
+                                <div class="col-sm-6">
+                                    <input  required name="visitCount" type="text" class="form-control form-control-sm"
+                                           id="visitCount">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-2 col-form-label">状态</label>
+                                <div class="col-sm-6">
+                                    <input  required name="status" type="text" class="form-control form-control-sm" id="status">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="description" class="col-sm-2 col-form-label">详情</label>
+                                <div class="col-sm-6">
+                                    <input  required name="description" type="text" class="form-control form-control-sm"
+                                           id="description">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pic_url" class="col-sm-2 col-form-label">图片地址</label>
+                                <div class="col-sm-6">
+                                    <input  required name="pic_url" type="file" class="form-control form-control-sm" id="pic_url">
+                                </div>
+                            </div>
+
+                            <!--                            <div hidden class="text-center mb-3">-->
+                            <!--                            <div class="form-group row">-->
+                            <!--                                <label for="pic_url_spare" class="col-sm-2 col-form-label">用户未选择图片的时候的图片地址</label>-->
+                            <!--                                <div class="col-sm-6">-->
+                            <!--                                    <input th:value="#{product.pic_url}" name="pic_url_spare" type="text" class="form-control form-control-sm" id="pic_url_spare">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="text-center mb-3">-->
+
+                            <button type="submit" class="btn btn-primary ">提交</button>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+</div>
+</div>
+<script th:src="@{js/listProduct.js}"></script>
+</body>
+</html>

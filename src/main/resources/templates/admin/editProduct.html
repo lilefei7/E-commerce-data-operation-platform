@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>编辑产品</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.css}">
+</head>
+<body>
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.3/js/bootstrap.min.js}"></script>
+<div class="container">
+    <br/><br/>
+    <div class="col-6 offset-4">
+        <form enctype="multipart/form-data" action="updateProduct" method="post">
+            <input name="id" type="hidden" th:value="${product.id}"/>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">商品名</label>
+                <div class="col-4">
+                    <input th:value="${product.name}" name="name" type="text" class="form-control form-control-sm"
+                           id="name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label">价格</label>
+                <div class="col-4">
+                    <input th:value="${product.price}" name="price" type="text" class="form-control form-control-sm"
+                           id="price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sum" class="col-sm-2 col-form-label">库存</label>
+                <div class="col-4">
+                    <input th:value="${product.sum}" name="sum" type="text" class="form-control form-control-sm"
+                           id="sum">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="visitCount" class="col-sm-2 col-form-label">访问量</label>
+                <div class="col-4">
+                    <input th:value="${product.visitCount}" name="visitCount" type="text"
+                           class="form-control form-control-sm"
+                           id="visitCount">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="status" class="col-sm-2 col-form-label">状态</label>
+                <div class="col-4">
+                    <input th:value="${product.status}" name="status" type="text" class="form-control form-control-sm"
+                           id="status">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">详情</label>
+                <div class="col-4">
+                    <input name="description" th:value="${product.description}" type="text"
+                           class="form-control form-control-sm"
+                           id="description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pic_url" class="col-sm-2 col-form-label">图片地址</label>
+                <div class="col-4">
+                    <input type="file" name="pic_url" th:value="${product.pic_url}" class="form-control form-control-sm"
+                           id="pic_url">
+                </div>
+            </div>
+            <input  hidden th:value="${pic_url_spare}" name="pic_url_spare" type="text" class="form-control form-control-sm"
+                    id="pic_url_spare">
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-primary ">提交</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

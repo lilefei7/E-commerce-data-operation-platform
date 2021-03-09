@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="menu">
+    <div class="col-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="listProduct"><img class="" src="img/logo.jpg" alt="logo"></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="listProduct">商品维护</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analysisData">数据分析</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listUser">账户维护</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout" th:if="${session.username ne null}">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col-2 offset-10">
+            <p>欢迎你:
+                <span class="label label-info" th:if="${session.username ne null}" th:text="${session.username}"></span>
+                <img style="width: 50px" class="label label-info" th:if="${session.username ne null}" th:src="${session.head}"></img>
+                <span class="label label-info" th:if="${session.username eq null}">游客</span>
+                <img style="width: 50px" class="label label-info" th:if="${session.username eq null}" src="/img/upload/visitor.gif"></img>
+            </p><br>
+        </div>
+    </div>
+</div>
+</html>
