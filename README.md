@@ -22,17 +22,17 @@
 
 # 技术方案
 
-jdk11.0.9   
-springBoot2.4.1   
-mybatis3.4.5   
-thymeleaf3.0.11   
-maven2.0.7  
-tomcat.9.0.41  
-bootstrap4.5.3 
-jQuery3.5.1 
-popper.js1.16.0   
-echarts4.9.0   
-junit5.7.0  
+jdk11.0.9<br.>
+springBoot2.4.1<br.>
+mybatis3.4.5<br.>
+thymeleaf3.0.11<br.>
+maven2.0.7/
+tomcat.9.0.41/
+bootstrap4.5.3/
+jQuery3.5.1/
+popper.js1.16.0/
+echarts4.9.0/
+junit5.7.0/
 pagehelper1.2.3   
 mysql8.0.22 
 logback1.2.3   
