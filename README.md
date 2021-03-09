@@ -1,7 +1,7 @@
 # 目录
 
 
-<a href="https://github.com/ailefun/E-commerce-data-operation-platform#%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86">功能模块划分</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86">功能模块划分</a></br>
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1">总体设计</a></br>
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1">概要设计</a></br>
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88">技术方案</a></br>
