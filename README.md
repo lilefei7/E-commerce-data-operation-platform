@@ -9,13 +9,9 @@
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A">心得体会</a></br>
 
 # 功能模块划分
-
    权限控制、异常处理、日志记录、用户管理、产品管理。
 
-
-
 # 总体设计
-
    后端用springboot等，用aop实现日志记录等，javabean做模型，thymeleaf做视图，springmvc做控制，junit做测试。
 
 # 概要设计
@@ -24,48 +20,27 @@
 
 ​      前端用thymeleaf做模板引擎、用bootstrap和jQuery简化前端设计，用eCharts设计统计图，index.html作为网站的登录页，也是触发各种异常时重定向的页面，listProduct.html作为用户登录成功后跳转的页面，也是用户在进行完各种添加、删除、更新操作之后重定向的界面，include.html写菜单和网站顶部的logo、导航、用户名、头像，listUser.html显示账户维护界面，提供用户信息的分页查看、添加、导出、删除、编辑操作，listProduct.html显示商品维护界面，提供商品信息的分页查看、添加、导出、批量删除、删除单个、上架下架、编辑、查看详情操作，editProduc.html、editUser.html提供修改商品和用户图片等各项信息的功能，analysisData.html显示热卖商品表、急需补货商品表、急需补货的商品和其访问量的条形统计图，热卖商品访问量的扇形统计图。
 
-
-
 # 技术方案
 
 jdk11.0.9
-
 springBoot2.4.1
-
 mybatis3.4.5
-
 thymeleaf3.0.11
-
 maven2.0.7
- tomcat.9.0.41
-
+tomcat.9.0.41
 bootstrap4.5.3
-
 jQuery3.5.1
-
 popper.js1.16.0
-
 echarts4.9.0
-
 junit5.7.0
-
 pagehelper1.2.3
-
 mysql8.0.22
-
 logback1.2.3
-
 hutool5.5.4
-
 fastjson1.2.75
-
 kaptcha2.3.2
-
 swagger2.6.1
-
 servlet4.0.1 
-
-
 
 # 数据库详细设计：
 
@@ -82,7 +57,6 @@ servlet4.0.1
 说明：存储用户信息
 
  
-
 名称：产品表      
 
 组成：产品id、产品名称、价格、库存、访问量、上架状态、上架日期、描述、图片地址
@@ -92,7 +66,6 @@ servlet4.0.1
 外键：说明：存储垃圾信息
 
  
-
 ### 关系模式：
 
 用户表（用户id、用户名、密码、年龄、手机、邮箱、地址、是否为管理员、头像地址
@@ -135,13 +108,7 @@ servlet4.0.1
 | status   | 状态   | varchar(200) |           |
 | head_pic | 头像   | varchar(200) |           |
 
- 
-
-### E-R模型图
-
- 
-
-​                   
+             
 
 # 心得体会
 
