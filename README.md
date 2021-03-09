@@ -1,14 +1,12 @@
 # 目录
 
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0">第一章 概述</a></br>
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90">第二章 系统分析</a></br>
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90">第三章 功能分析</a></br>
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0">第四章 系统实现</a></br>
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E6%83%85%E5%86%B5%E5%8F%8A%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98">第五章 系统测试情况及调试过程中的问题</a></br>
-<a href="https://github.com/ailefun/Database-course-design/#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E7%BB%93%E6%9D%9F%E8%AF%AD">第六章 结束语</a></br>
 
-
-
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform#%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86">功能模块划分</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1">总体设计</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1">概要设计</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88">技术方案</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1">数据库详细设计</a></br>
+<a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A">心得体会</a></br>
 
 # 功能模块划分
 
