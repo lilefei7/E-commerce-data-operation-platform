@@ -22,25 +22,25 @@
 
 # 技术方案
 
-jdk11.0.9<br.>
-springBoot2.4.1<br.>
-mybatis3.4.5<br.>
-thymeleaf3.0.11<br.>
-maven2.0.7/
-tomcat.9.0.41/
-bootstrap4.5.3/
-jQuery3.5.1/
-popper.js1.16.0/
-echarts4.9.0/
-junit5.7.0/
-pagehelper1.2.3   
-mysql8.0.22 
-logback1.2.3   
-hutool5.5.4 
-fastjson1.2.75 
-kaptcha2.3.2   
-swagger2.6.1   
-servlet4.0.1   
+jdk11.0.9<br/>
+springBoot2.4.1<br/>
+mybatis3.4.5<br/>
+thymeleaf3.0.11<br/>
+maven2.0.7<br/>
+tomcat.9.0.41<br/>
+bootstrap4.5.3<br/>
+jQuery3.5.1<br/>
+popper.js1.16.0<br/>
+echarts4.9.0<br/>
+junit5.7.0<br/>
+pagehelper1.2.3<br/>  
+mysql8.0.22<br/>
+logback1.2.3<br/>
+hutool5.5.4<br/>
+fastjson1.2.75<br/>
+kaptcha2.3.2<br/>
+swagger2.6.1<br/>
+servlet4.0.1<br/>
 
 # 数据库详细设计：
 
