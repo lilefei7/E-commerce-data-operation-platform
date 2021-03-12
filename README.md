@@ -8,6 +8,25 @@
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1">数据库详细设计</a></br>
 <a href="https://github.com/ailefun/E-commerce-data-operation-platform/blob/main/README.md#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A">心得体会</a></br>
 
+# 系统截图
+
+**商品维护**
+
+<p align="center">
+        <img src="http://47.94.108.44/github_imgage/E-commerce-data-operation-platform/E1.png" width=""/> 
+</p>
+
+**数据分析**
+
+<p align="center">
+        <img src="http://47.94.108.44/github_imgage/E-commerce-data-operation-platform/E1.png" width=""/>
+</p>
+**账户维护**
+
+<p align="center">
+        <img src="http://47.94.108.44/github_imgage/E-commerce-data-operation-platform/E1.png" width=""/>
+</p>
+
 # 功能模块划分
    权限控制、异常处理、日志记录、用户管理、产品管理。
 
